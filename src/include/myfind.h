@@ -1,16 +1,22 @@
 #ifndef MYFIND_H
 #define MYFIND_H
 
+
+// myfind options
 typedef struct option
 {
     char *name;
     int print;
     char types;
     char *newer;
-    struct option *next;
-}opt;
+    char *exec;
+    char *execdir;
+    int delete;
+
+} opt;
+
 
 void myfind(char **path, opt *args);
-opt *Parsing_args(int len, char **spath, char **parms);
+opt *parsing_arguments(int len, char **spath, char **parms);
 
-#endif /* ! MYFIND_H */
+#endif 

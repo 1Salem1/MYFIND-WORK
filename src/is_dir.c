@@ -26,6 +26,9 @@ void is_dir(char *dir_path, opt *parms, struct stat *hdr)
             || (strcmp(sdir->d_name, "..")) == 0))
         {
             size_t len_path = strlen(dir_path) + strlen(sdir->d_name);
+
+             char *path = malloc(sizeof(char) * len_path);
+
             char path[len_path];
 
             if (dir_path[strlen(dir_path) - 1] == '/')
@@ -37,7 +40,7 @@ void is_dir(char *dir_path, opt *parms, struct stat *hdr)
             if (status == -1)
             {
                 fprintf(stderr, "myfind: %s: %s\n", path, strerror(errno));
-                exit(EXIT_FAILURE);
+               return EXIT_FAILURE;
             }
 
             if (S_ISDIR(hdr->st_mode))

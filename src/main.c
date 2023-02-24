@@ -2,11 +2,11 @@
 
 int main(int argc, char *argv[])
 {
-    char *list_path[argc];
+    char *list_arr[argc];
 
-    opt *args = Parsing_args(argc, list_path, argv);
+    opt *args = parsing_arguments(argc, list_arr, argv);
 
-    myfind(list_path, args);
+    myfind(list_arr, args);
 
     return 0;
 }
