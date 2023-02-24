@@ -11,7 +11,7 @@ $(BIN): $(OBJS)
 
 check: $(OBJS)
 	$(CC) -o $(BIN) $(OBJS)
-	./tests/tests.sh
+	./test/test.sh
 
 clean:
 	$(RM) $(BIN) $(OBJS)

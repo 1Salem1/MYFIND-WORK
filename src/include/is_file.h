@@ -7,6 +7,12 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+
+
+
+
+
+
 // It checks whether the file at the given path exists and is a regular file.
 void is_file(char *file_path, opt *options, struct stat *header);
 /* If it is a regular file and its modification time is more recent than the modification time of the file pointed to by the stat struct,

@@ -10,7 +10,7 @@
 #include "include/myfind.h"
 
 void is_dir(char *dir_path, opt *parms, struct stat *hdr)
-{
+{   
     struct dirent *sdir;
 
     DIR * dir = opendir(dir_path);
@@ -27,7 +27,7 @@ void is_dir(char *dir_path, opt *parms, struct stat *hdr)
         {
             size_t len_path = strlen(dir_path) + strlen(sdir->d_name);
 
-             char *path = malloc(sizeof(char) * len_path);
+          //  char *path = malloc(sizeof(char) * len_path);
 
             char path[len_path];
 
@@ -40,7 +40,7 @@ void is_dir(char *dir_path, opt *parms, struct stat *hdr)
             if (status == -1)
             {
                 fprintf(stderr, "myfind: %s: %s\n", path, strerror(errno));
-               return EXIT_FAILURE;
+             exit(1);
             }
 
             if (S_ISDIR(hdr->st_mode))
@@ -50,6 +50,7 @@ void is_dir(char *dir_path, opt *parms, struct stat *hdr)
             }
             else
                 is_file(path, parms, hdr);
+                free(path);
         }
         else
             continue;

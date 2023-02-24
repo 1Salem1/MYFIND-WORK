@@ -5,14 +5,17 @@
 // myfind options
 typedef struct option
 {
-    char *name;
+   char *name;
     int print;
     char types;
     char *newer;
     char *exec;
     char *execdir;
+    int perm;
     int delete;
-
+    int delete_files;
+    int perm_mode;
+    struct option *next;
 } opt;
 
 
