@@ -21,13 +21,7 @@ function check() {
 }
 
 
-check src
-check makefile src
-check .
-check src -name 'myfind.*'
-check src -name 'myfind.?'
-check src -type d
-check src/*.o -o src/include/myfind.h
-check find
-check src/main.o -newer src/main.c
 
+check .
+check src/include -print
+check tests -type d
